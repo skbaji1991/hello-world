@@ -1,0 +1,18 @@
+pipeline{
+agent {
+            label 'slave1'
+    }
+stages{
+    stage('git clone'){
+        steps{
+                git 'https://github.com/kaza514/hello-world.git'
+                sh 'ls -l'
+            }
+        }
+    stage('maven build'){
+        steps{
+            sh 'mvn clean install'
+            }    
+        }
+    }
+}
