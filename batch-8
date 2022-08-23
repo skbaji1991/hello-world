@@ -1,0 +1,27 @@
+pipeline{
+agent any
+stages{
+
+    stage('folder'){
+        steps{
+            sh 'rm -rf kareem'
+            sh 'mkdir kareem'
+        }
+
+    }
+
+    stage('file'){
+        steps{
+            sh 'rm -rf 555'
+            sh 'touch 555'
+            echo 'hi kareem >> 555'
+            
+        }
+
+    }
+    
+
+
+
+}
+}
