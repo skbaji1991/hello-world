@@ -1,0 +1,19 @@
+pipeline{
+agent any
+stages{
+    stage(Dev){
+        steps{
+            git 'https://github.com/skbaji1991/hello-world.git'
+            sh "ls -l"
+        }
+    }
+        
+    stage(qa){
+        steps{
+            sh "mvn clean install "
+            sh "ls -l"
+         
+        }
+    }
+  }
+}
