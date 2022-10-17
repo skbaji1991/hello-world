@@ -1,0 +1,12 @@
+pipeline{
+agent any
+}
+stages{
+    stage(git){
+    steps{
+         git 'https://github.com/skbaji1991/hello-world.git'
+
+        }
+    }
+}
+         }
