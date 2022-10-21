@@ -13,6 +13,12 @@ pipeline {
                 sh 'mvn clean install'
                 }
         }
-        
+
+        stage('docker image build') {
+              steps {
+                sh 'docker build  -t  abdulkareem/kareem:2.0.1'
+                }
+        }
     }
+        
 }
