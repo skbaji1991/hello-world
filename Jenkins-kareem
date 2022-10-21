@@ -6,5 +6,13 @@ pipeline {
                  git credentialsId: 'Github', url: 'https://github.com/skbaji1991/hello-world.git'
                    }
                 }
-            }
+
+        stage('maven build') {
+              steps {
+    // One or more steps need to be included within the steps block.
+                def mabvn = tool name: 'maven  3.8.3', type: 'maven'
+                sh "mvn clean install ${mabvn}"
+                    }
+                }
+        
         }
