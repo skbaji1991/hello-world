@@ -5,6 +5,6 @@ pipeline{
         steps{
           git credentialsId: 'Github', url: 'https://github.com/skbaji1991/hello-world.git'
             }
+           }
+          }
         }
-    }
- }
