@@ -1,10 +1,10 @@
 pipeline{
     agent any
     stages{
-      stage{
-        steps{
-          git credentialsId: 'Github', url: 'https://github.com/skbaji1991/hello-world.git'
+        stage{
+             steps{
+                 git credentialsId: 'Github', url: 'https://github.com/skbaji1991/hello-world.git'
+                   }
+                }
             }
-           }
-          }
         }
