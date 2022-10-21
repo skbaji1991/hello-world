@@ -1,7 +1,7 @@
-pipeline{
+pipeline {
     agent any
-    stages{
-        stage{
+    stages {
+        stage('git clone') {
              steps{
                  git credentialsId: 'Github', url: 'https://github.com/skbaji1991/hello-world.git'
                    }
