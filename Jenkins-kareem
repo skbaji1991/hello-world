@@ -1,7 +1,7 @@
 pipeline {
     agent any
         environment{
-        PATH = "/opt/maven  3.8.3/bin:$PATH"
+        PATH = "/opt/maven 3.8.3/bin:$PATH"
     }
     stages {
         stage('git clone') {
@@ -12,9 +12,9 @@ pipeline {
 
         stage('maven build') {
               steps {
-    // One or more steps need to be included within the steps block.
-                def mabvn = tool name: 'maven  3.8.3', type: 'maven'
-                sh "mvn clean install ${mabvn}"
+                def mvnhome = tool name: 'maven  3.8.3', type: 'maven'
+                    sh "${mvnhome}/bin/mvn --version"
+                    sh "${mvnhome}/bin/mvn clean package"
                     }
                 }
         
