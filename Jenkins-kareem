@@ -1,22 +1,22 @@
 pipeline {
     agent any
-        environment{
-        PATH = "/opt/maven 3.8.3/bin:$PATH"
     }
     stages {
         stage('git clone') {
              steps{
                  git credentialsId: 'Github', url: 'https://github.com/skbaji1991/hello-world.git'
                    }
-                }
+                            }
 
         stage('maven build') {
               steps {
+                 script {
                 def mvnhome = tool name: 'maven  3.8.3', type: 'maven'
                     sh "${mvnhome}/bin/mvn --version"
                     sh "${mvnhome}/bin/mvn clean package"
+                       }
                     }
-                }
+                             }
         
-        }
-}
+            }
+
