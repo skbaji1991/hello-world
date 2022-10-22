@@ -24,6 +24,7 @@ pipeline {
               steps {
                 withCredentials([string(credentialsId: 'docker', variable: 'pdpwd')]) {
                 sh 'docker login -u skabdulkareem -p $(pdpwd)'
+                sh 'deploy.sh'
                 }
                 
                 sh 'docker push  abdulkareem/kareem11:2.0.1'
