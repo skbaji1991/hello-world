@@ -22,8 +22,8 @@ pipeline {
 
         stage('docker push') {
               steps {
-                withCredentials([string(credentialsId: 'docker', variable: 'dockerpasswd')]) {
-                sh 'docker login -u skabdulkareem -p $(dockerpasswd)'
+                withCredentials([string(credentialsId: 'docker', variable: 'pdpwd')]) {
+                sh 'docker login -u skabdulkareem -p $(pdpwd)'
                 }
                 
                 sh 'docker push  abdulkareem/kareem11:2.0.1'
