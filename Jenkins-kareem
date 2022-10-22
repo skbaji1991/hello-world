@@ -11,13 +11,13 @@ pipeline {
         stage('maven build') {
               steps {
                 sh 'mvn clean install'
-                }
+            }
         }
 
         stage('docker image build') {
               steps {
                 sh 'docker build  -t  abdulkareem2/kareem2:2.0.1 .'
-                }
+            }
         }
 
         stage('docker push') {
@@ -25,7 +25,7 @@ pipeline {
                 withCredentials([string(credentialsId: 'docker', variable: 'dockerpasswd')])
                 sh "docker login -u skabdulkareem -p $(dockerpasswd)"
                 sh 'docker push  abdulkareem2/kareem2:2.0.1'
-                }
+            }
         }
     }
         
