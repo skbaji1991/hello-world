@@ -16,17 +16,17 @@ pipeline {
 
         stage('docker image build') {
               steps {
-                sh 'docker build  -t  abdulkareem2/kareem2:2.0.1 .'
+                sh 'docker build  -t  abdulkareem/kareem11:2.0.1 .'
             }
         }
 
         stage('docker push') {
               steps {
                 withCredentials([string(credentialsId: 'docker', variable: 'dockerpasswd')]) {
-                sh "docker login -u skabdulkareem -p $(dockerpasswd)"
+                sh 'docker login -u skabdulkareem -p $(dockerpasswd)'
                 }
                 
-                sh 'docker push  abdulkareem2/kareem2:2.0.1'
+                sh 'docker push  abdulkareem/kareem11:2.0.1'
             
             }
         }
