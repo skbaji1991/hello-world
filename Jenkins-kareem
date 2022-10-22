@@ -16,9 +16,11 @@ pipeline {
 
         stage('docker image build') {
               steps {
-                sh 'docker build  -t  abdulkareem/kareem:2.0.1'
+                sh 'docker build  -t  abdulkareem2/kareem2:2.0.1 .'
                 }
         }
     }
         
 }
+
+
