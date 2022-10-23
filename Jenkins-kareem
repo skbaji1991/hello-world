@@ -16,21 +16,26 @@ pipeline {
 
         stage('docker image build') {
               steps {
-                sh 'docker build  -t  abdulkareem/kareem11:2.0.1 .'
+                sh 'docker build  -t  skabdulkareem/kareem:2.0.3 .'
             }
         }
 
-        stage('docker push') {
+        stage('docker login') {
               steps {
-                withCredentials([string(credentialsId: 'docker', variable: 'pdpwd')]) {
-                sh 'docker login -u skabdulkareem -p $(pdpwd)'
-                sh 'deploy.sh'
-                }
+                withCredentials([string(credentialsId: 'Dockerhub', variable: 'Docpass')]) {
+                 sh 'docker login -u skabdulkareem -p  ${Docpass}'
                 
-                sh 'docker push  abdulkareem/kareem11:2.0.1'
-            
+                }
+               
             }
         }
+        
+        stage('docker push') {
+              steps {
+                sh 'docker push skabdulkareem/kareem:2.0.3'
+            }
+        }
+
     }
         
 }
